@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="gameCSS.css" />
+        <title>MASTERMIND GAME ATTEMPT</title>
+    </head>
+
+    <body>
+        <h1>Mastermind Game</h1>
+        <h3>Can You Work Out The Mystery Coloured Pattern?</h3>
+
+        <button class="submitButton newGameButton" type="button" onclick="showSoln()">New Game</button>
+
+        <p class="solution">New Game</p>
+
+
+        <p>Click on the coloured dots to choose your colours - order is important</p>
+
+        <p class="heading headLeft">Guess</p>
+        <p class="heading headRight">Feedback</p>
+        <br>
+        <br>
+
+        <div class="row1">
+
+            <div class="guessSection">
+
+            <div class="first">
+            <div class="colour1 guess guess1"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed1()"></button>
+                <button class="blueButton" onclick="chooseBlue1()"></button>
+                <button class="yellowButton" onclick="chooseYellow1()"></button>
+                <button class="greenButton" onclick="chooseGreen1()"></button>
+            </div>
+            </div>
+
+            
+            <div class="second">
+            <div class="colour2 guess guess2"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed2()"></button>
+                <button class="blueButton" onclick="chooseBlue2()"></button>
+                <button class="yellowButton" onclick="chooseYellow2()"></button>
+                <button class="greenButton" onclick="chooseGreen2()"></button>
+            </div>
+            </div>
+
+           
+
+            <div class="third">
+            <div class="colour3 guess guess3"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed3()"></button>
+                <button class="blueButton" onclick="chooseBlue3()"></button>
+                <button class="yellowButton" onclick="chooseYellow3()"></button>
+                <button class="greenButton" onclick="chooseGreen3()"></button>
+            </div>
+            </div>
+
+           
+            
+            <div class="fourth">
+            <div class="colour4 guess guess4"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed4()"></button>
+                <button class="blueButton" onclick="chooseBlue4()"></button>
+                <button class="yellowButton" onclick="chooseYellow4()"></button>
+                <button class="greenButton" onclick="chooseGreen4()"></button>
+            </div>
+            </div>
+
+           
+
+            <div class="answerSection">
+            <div class="answer1 answer"></div>
+            <div class="answer2 answer"></div>
+            <div class="answer3 answer"></div>
+            <div class="answer4 answer"></div>
+            </div>
+        
+            <button type="button" class="submitButton" onclick="submitChoice()">Submit Choice</button>
+        
+        </div>
+
+        <p class="choice">Colour Choice</p>
+
+        
+        <p class="feedback">Temp Feedback Section</p>
+   
+
+        <div class="row2">
+
+            <div class="guessSection">
+
+            <div class="first">
+            <div class="colour1 guess guess1"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed1(row)"></button>
+                <button class="blueButton" onclick="chooseBlue1(row)"></button>
+                <button class="yellowButton" onclick="chooseYellow1(row)"></button>
+                <button class="greenButton" onclick="chooseGreen1(row)"></button>
+            </div>
+            </div>
+
+            
+            <div class="second">
+            <div class="colour2 guess guess2"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed2()"></button>
+                <button class="blueButton" onclick="chooseBlue2()"></button>
+                <button class="yellowButton" onclick="chooseYellow2()"></button>
+                <button class="greenButton" onclick="chooseGreen2()"></button>
+            </div>
+            </div>
+
+           
+            <div class="third">
+            <div class="colour3 guess guess3"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed3()"></button>
+                <button class="blueButton" onclick="chooseBlue3()"></button>
+                <button class="yellowButton" onclick="chooseYellow3()"></button>
+                <button class="greenButton" onclick="chooseGreen3()"></button>
+            </div>
+            </div>
+
+                       
+            <div class="fourth">
+            <div class="colour4 guess guess4"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed4()"></button>
+                <button class="blueButton" onclick="chooseBlue4()"></button>
+                <button class="yellowButton" onclick="chooseYellow4()"></button>
+                <button class="greenButton" onclick="chooseGreen4()"></button>
+            </div>
+            </div>
+
+           
+
+            <div class="answerSection">
+            <div class="answer1 answer"></div>
+            <div class="answer2 answer"></div>
+            <div class="answer3 answer"></div>
+            <div class="answer4 answer"></div>
+            </div>
+        
+            <button type="button" class="submitButton" onclick="submitChoice()">Submit Choice</button>
+        
+        </div>
+
+        <p class="choice">Colour Choice</p>
+
+        
+        <p class="feedback">Temp Feedback Section</p>
+
+
+        <div id="createdRow"></div>
+
+        <div class="row3">
+
+            <div class="guessSection">
+
+
+            <script>
+
+            
+            function createRow() {
+
+                let section = getElementByID("createdRow");
+
+                for (let i = 0; i < 1; i++) {
+                    let row = document.createElement("div");
+                    row.className = "row" + i;
+
+                    for (let i = 0; i < 4; i++) {
+                        let guess = document.createElement("div");
+                        guess.className = "guess" + i;
+                        row.appendChild(guess);
+                    }
+
+                section.appendChild(row);
+                }
+            }
+
+            </script>
+
+            <div class="first">
+            <div class="colour1 guess guess1"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed1(row)"></button>
+                <button class="blueButton" onclick="chooseBlue1(row)"></button>
+                <button class="yellowButton" onclick="chooseYellow1(row)"></button>
+                <button class="greenButton" onclick="chooseGreen1(row)"></button>
+            </div>
+            </div>
+
+            
+            <div class="second">
+            <div class="colour2 guess guess2"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed2()"></button>
+                <button class="blueButton" onclick="chooseBlue2()"></button>
+                <button class="yellowButton" onclick="chooseYellow2()"></button>
+                <button class="greenButton" onclick="chooseGreen2()"></button>
+            </div>
+            </div>
+
+           
+            <div class="third">
+            <div class="colour3 guess guess3"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed3()"></button>
+                <button class="blueButton" onclick="chooseBlue3()"></button>
+                <button class="yellowButton" onclick="chooseYellow3()"></button>
+                <button class="greenButton" onclick="chooseGreen3()"></button>
+            </div>
+            </div>
+
+                       
+            <div class="fourth">
+            <div class="colour4 guess guess4"></div>
+            <div>
+                <button class="redButton" onclick="chooseRed4()"></button>
+                <button class="blueButton" onclick="chooseBlue4()"></button>
+                <button class="yellowButton" onclick="chooseYellow4()"></button>
+                <button class="greenButton" onclick="chooseGreen4()"></button>
+            </div>
+            </div>
+
+           
+
+            <div class="answerSection">
+            <div class="answer1 answer"></div>
+            <div class="answer2 answer"></div>
+            <div class="answer3 answer"></div>
+            <div class="answer4 answer"></div>
+            </div>
+        
+            <button type="button" class="submitButton" onclick="submitChoice()">Submit Choice</button>
+        
+        </div>
+
+        <p class="choice">Colour Choice</p>
+
+        
+        <p class="feedback">Temp Feedback Section</p>
+
+        
+
+
+<script>
+
+// need to create a random sequence to guess against
+
+const solution = document.querySelector(".solution");
+
+let solutionArr = [];
+
+for (let i = 0; i < 4; i++) {
+    solutionArr[i] = Math.ceil(Math.random() * 4);
+        if (solutionArr[i] == 1) {
+            solutionArr[i] = "R";
+        } else if (solutionArr[i] == 2) {
+            solutionArr[i] = "B";
+        } else if (solutionArr[i] == 3) {
+            solutionArr[i] = "Y";
+        } else if (solutionArr[i] == 4) {
+            solutionArr[i] = "G";
+        }
+}
+
+let solutionStr = solutionArr.join("");
+
+function showSoln() {
+    solution.textContent = solutionStr;
+}
+
+// enter and store guess input
+
+const guess1 = document.querySelector(".guess1");
+let send1 = "";
+
+function chooseRed1(row) {
+    guess1.style.background = "magenta";
+    send1 = "R";
+}
+
+function chooseBlue1() {
+    guess1.style.background = "lightseagreen";
+    send1 = "B";
+}
+
+function chooseYellow1() {
+    guess1.style.background = "yellow";
+    send1 = "Y";
+}
+
+function chooseGreen1() {
+    guess1.style.background = "limegreen";
+    send1 = "G";
+}
+
+const guess2 = document.querySelector(".guess2");
+let send2 = "";
+
+function chooseRed2() {
+    guess2.style.background = "magenta";                   
+    send2 = "R";
+}
+
+function chooseBlue2() {
+    guess2.style.background = "lightseagreen";
+    send2 = "B";
+}
+
+function chooseYellow2() {
+    guess2.style.background = "yellow";
+    send2 = "Y";
+}
+
+function chooseGreen2() {
+    guess2.style.background = "limegreen";
+    send2 = "G";
+}
+
+const guess3 = document.querySelector(".guess3");
+let send3 = "";
+
+function chooseRed3() {
+    guess3.style.background = "magenta";
+    send3 = "R";                   
+}
+
+function chooseBlue3() {
+    guess3.style.background = "lightseagreen";
+    send3 = "B";
+}
+
+function chooseYellow3() {
+    guess3.style.background = "yellow";
+    send3 = "Y";
+}
+
+function chooseGreen3() {
+    guess3.style.background = "limegreen";
+    send3 = "G";
+}
+
+const guess4 = document.querySelector(".guess4");
+let send4 = "";
+
+function chooseRed4() {
+    guess4.style.background = "magenta";
+    send4 = "R";
+}
+
+function chooseBlue4() {
+    guess4.style.background = "lightseagreen";
+    send4 = "B";
+}
+
+function chooseYellow4() {
+    guess4.style.background = "yellow";
+    send4 = "Y";
+}
+
+function chooseGreen4() {
+    guess4.style.background = "limegreen";
+    send4 = "G";
+}
+
+// make function that submits choice, puts in string and gives feedback
+
+let choiceStr = "";
+let choiceArr = [];
+            
+const choice = document.querySelector(".choice");
+
+let blackPin = 0;
+let whitePin = 0;
+
+const feedback = document.querySelector(".feedback");
+const answer1 = document.querySelector(".answer1");
+const answer2 = document.querySelector(".answer2");
+const answer3 = document.querySelector(".answer3");
+const answer4 = document.querySelector(".answer4");
+
+let reducedChoiceArr = [];
+let reducedSolutionArr = [];
+
+function submitChoice() {
+    choice.style.color = "red";
+    if (send1 =="" | send2 =="" | send3 == "" | send4 == "") {
+        choice.textContent = "choose a colour for every space";
+    } else {
+        choiceStr = send1 + send2 + send3 + send4;
+        choice.textContent = choiceStr;
+        choiceArr = choiceStr.split("");
+            }
+    
+
+// now need to compare the choice with the solution
+
+    blackPin = 0;
+    reducedChoiceArr = [];
+    reducedSolutionArr = [];
+    for (let j = 0; j < 4; j++) {
+    if (choiceArr[j] == solutionArr[j]) {
+        blackPin = blackPin + 1;
+    } else { 
+        reducedChoiceArr.push(choiceArr[j]);
+        reducedSolutionArr.push(solutionArr[j]);
+    }
+    }
+
+    whitePin = 0;
+    let solutionIndex;
+
+    for (let i = 0; i < reducedChoiceArr.length; i++) {
+        if (reducedSolutionArr.find(element => element == reducedChoiceArr[i]) != undefined) {
+            whitePin = whitePin + 1;
+            solutionIndex = reducedSolutionArr.findIndex(element => element == reducedChoiceArr[i]);
+            reducedSolutionArr[solutionIndex] = "M";  // M for matched
+            
+        }
+    }
+    
+    feedback.textContent = "no black pins = " + blackPin + "no white = " + whitePin + " reducedChoice = " + reducedChoiceArr + " reducedSolution = " + reducedSolutionArr;
+
+    if (blackPin == 4) {
+        answer1.style.background = "black";
+        answer2.style.background = "black";
+        answer3.style.background = "black";
+        answer4.style.background = "black";
+    } else if (blackPin == 3) {
+        answer1.style.background = "black";
+        answer2.style.background = "black";
+        answer3.style.background = "black";
+        if (whitePin == 1) {
+            answer4.style.background = "orange";
+        }
+    } else if (blackPin == 2) {
+        answer1.style.background = "black";
+        answer2.style.background = "black";
+        if (whitePin == 1) {
+            answer3.style.background = "orange";
+        } else if (whitePin == 2) {
+            answer3.style.background = "orange";
+            answer4.style.background = "orange";
+        }
+    } else if (blackPin == 1) {
+        answer1.style.background = "black";
+        if (whitePin == 1) {
+            answer2.style.background = "orange";
+        } else if (whitePin == 2) {
+            answer2.style.background = "orange";
+            answer3.style.background = "orange";
+        } else if (whitePin == 3) {
+            answer2.style.background = "orange";
+            answer3.style.background = "orange";
+            answer4.style.background = "orange";
+        }
+    } else if (blackPin == 0) {
+        if (whitePin == 1) {
+            answer1.style.background = "orange";
+        } else if (whitePin == 2) {
+            answer1.style.background = "orange";
+            answer2.style.background = "orange";
+        } else if (whitePin == 3) {
+            answer1.style.background = "orange";
+            answer2.style.background = "orange";
+            answer3.style.background = "orange";
+        } else if (whitePin == 4) {
+            answer1.style.background = "orange";
+            answer2.style.background = "orange";
+            answer3.style.background = "orange";
+            answer4.style.background = "orange";
+        }
+    }
+
+}
+
+
+        </script>
+
+        
+    </body>
+
+
+</html>
